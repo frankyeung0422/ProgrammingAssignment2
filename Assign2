@@ -1,3 +1,9 @@
+#assignment 2
+# the makecachematrix takes in the x matrix as agrument and then calculate the inverse matrix and store in cache.
+# when the cacheSOLVE WAS called, it will return the cache inverse matrix if it was calculated before
+# if not, it will calculate the inverse matrix.
+
+
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -9,6 +15,8 @@ makeCacheMatrix <- function(x = matrix()) {
   getinverse <- function() m
   list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
   }
+  
+# cachesolve utilize the lexical scoping feature of R! if there is cached inverse matrix before, it will take the cache.
 cacheSolve <- function(x, ...) {
   m <- x$getinverse()
   if(!is.null(m)) {
